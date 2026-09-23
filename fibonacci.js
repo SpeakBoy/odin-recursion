@@ -23,3 +23,22 @@ function fibs(n) {
 
     return fibArr;
 }
+
+function fibsRec(n) {
+    if (n === 1) {
+        return [0];
+    }
+
+    return fibsRec(n - 1).concat(fibsRecNum(n));
+
+    function fibsRecNum(n) {
+        if (n <= 1) {
+            return 0;
+        }
+        if (n === 2) {
+            return 1;
+        }
+
+        return fibsRecNum(n - 1) + fibsRecNum(n - 2);   
+    }
+}
