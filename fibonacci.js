@@ -25,20 +25,17 @@ function fibs(n) {
 }
 
 function fibsRec(n) {
+    if (n <= 0) {
+        return [];
+    }
     if (n === 1) {
         return [0];
     }
-
-    return fibsRec(n - 1).concat(fibsRecNum(n));
-
-    function fibsRecNum(n) {
-        if (n <= 1) {
-            return 0;
-        }
-        if (n === 2) {
-            return 1;
-        }
-
-        return fibsRecNum(n - 1) + fibsRecNum(n - 2);   
+    if (n === 2) {
+        return [0, 1];
     }
+
+    const fibArr = fibsRec(n - 1);
+    fibArr.push(fibArr[n - 2] + fibArr[n - 3]);
+    return fibArr;
 }
